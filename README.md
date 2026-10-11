@@ -96,7 +96,7 @@ Then open the printed localhost URL. ES modules need a server.
 
 - The anatomy is deliberately stylised and not to scale.
 - Sample data is generated from simple formulas for teaching purposes; it is not physiological modelling.
-- `og.png` is rendered separately by the lead.
+- `og.jpg` is rendered separately by the lead.
 
 ---
 
