@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 64" width="480" height="128" role="img" aria-labelledby="t">
+  <title id="t">Vitalis</title>
+  <rect width="240" height="64" fill="#0A1014"/>
+  <g transform="translate(8 8)">
+    <circle cx="24" cy="24" r="20" fill="none" stroke="#F2F5F7" stroke-width="1.6" stroke-dasharray="2 3.2"/>
+    <path d="M6 26 H15 L19 16 L25 34 L29 22 L32 26 H42" fill="none" stroke="#4FD1C5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="24" cy="6.5" r="2.4" fill="#F2B84B"/>
+  </g>
+  <text x="68" y="40" font-family="'Schibsted Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="5" fill="#F2F5F7">VITALIS</text>
+</svg>

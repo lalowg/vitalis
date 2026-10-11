@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>VITALIS — The Science of Better Living</title>
+<meta name="description" content="Vitalis is a longevity education studio. Explore an interactive body atlas of six systems (heart, lungs, brain, muscles, sleep and metabolism) with plain-English science and clearly labelled sample data. Educational, not medical advice.">
+<meta name="theme-color" content="#0A1014">
+<link rel="canonical" href="https://vitalis-hazel-tau.vercel.app/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VITALIS">
+<meta property="og:title" content="VITALIS — The Science of Better Living">
+<meta property="og:description" content="An interactive body atlas: six systems, the everyday habits research links to them, and how to read health data without overreacting.">
+<meta property="og:url" content="https://vitalis-hazel-tau.vercel.app/">
+<meta property="og:image" content="https://vitalis-hazel-tau.vercel.app/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VITALIS — The Science of Better Living">
+<meta name="twitter:description" content="Six body systems, one interactive atlas, and sample-data charts that teach you to read the numbers.">
+<meta name="twitter:image" content="https://vitalis-hazel-tau.vercel.app/og.png">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&amp;family=Spline+Sans+Mono:wght@300;400;500&amp;display=swap">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.vtReady)document.documentElement.classList.remove('js');},3500);</script>
+<script type="module" src="main.js"></script>
+</head>
+<body id="top">
+<a class="skip" href="#main">Skip to content</a>
+
+<svg class="defs" aria-hidden="true" focusable="false" width="0" height="0">
+  <defs>
+    <symbol id="vt-mark" viewBox="0 0 48 48">
+      <circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="2 3.2"/>
+      <path d="M6 26 H15 L19 16 L25 34 L29 22 L32 26 H42" fill="none" stroke="var(--mark-cyan, #4FD1C5)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="24" cy="6.5" r="2.4" fill="var(--mark-amber, #F2B84B)"/>
+    </symbol>
+    <symbol id="ic-all" viewBox="0 0 20 20"><g fill="none" stroke="currentColor" stroke-width="1.3"><path d="M10 2.5 L16.5 6.25 V13.75 L10 17.5 L3.5 13.75 V6.25 Z"/><circle cx="10" cy="10" r="2"/></g></symbol>
+    <symbol id="ic-heart" viewBox="0 0 20 20"><path d="M10 16.5 C4 12.5 2.5 9.5 3.4 7 C4.4 4.4 7.8 4 10 6.7 C12.2 4 15.6 4.4 16.6 7 C17.5 9.5 16 12.5 10 16.5 Z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-lungs" viewBox="0 0 20 20"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><path d="M10 2.5 V9 M10 9 L7.5 11 M10 9 L12.5 11"/><path d="M7.5 6 C4.5 6.5 3 10 3 14 C3 16 5 16.5 7.5 15.5 Z M12.5 6 C15.5 6.5 17 10 17 14 C17 16 15 16.5 12.5 15.5 Z"/></g></symbol>
+    <symbol id="ic-brain" viewBox="0 0 20 20"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><path d="M10 4 C8 2.5 4.5 3.5 4.5 6.5 C2.5 7.5 2.5 11 4.5 12 C4.5 15 8 16 10 14.5 C12 16 15.5 15 15.5 12 C17.5 11 17.5 7.5 15.5 6.5 C15.5 3.5 12 2.5 10 4 Z"/><path d="M10 4 V14.5 M7 8 C8 9 8 10 7 11 M13 8 C12 9 12 10 13 11"/></g></symbol>
+    <symbol id="ic-muscles" viewBox="0 0 20 20"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><path d="M2.5 7.5 V12.5 M5 5.5 V14.5 M15 5.5 V14.5 M17.5 7.5 V12.5 M5 10 H15"/></g></symbol>
+    <symbol id="ic-sleep" viewBox="0 0 20 20"><path d="M14.5 13.5 A6.5 6.5 0 0 1 6.5 5.5 A6.5 6.5 0 1 0 14.5 13.5 Z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M13 3.5 h3 l-3 3 h3" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-metabolism" viewBox="0 0 20 20"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.5 C13 6.5 15 9 15 12 A5 5 0 0 1 5 12 C5 9 7 6.5 10 2.5 Z"/><path d="M8 12.5 A2 2 0 0 0 10 14.5"/></g></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
+
+<header class="site-header" id="site-header">
+  <a class="brand" href="#top" aria-label="Vitalis, back to the top">
+    <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><use href="#vt-mark"/></svg>
+    <span class="brand__word">VITALIS</span>
+  </a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav"><span class="menu-btn__icon" aria-hidden="true"><i></i><i></i></span><span>Menu</span></button>
+  <nav class="site-nav" id="site-nav" aria-label="Main">
+    <ul>
+      <li><a href="#atlas-view"><span>01</span>Atlas</a></li>
+      <li><a href="#levers"><span>02</span>Habits</a></li>
+      <li><a href="#day"><span>03</span>A day in data</a></li>
+      <li><a href="#signal"><span>04</span>Signal vs noise</a></li>
+      <li class="site-nav__cta"><a href="#cohort"><span>05</span>Join a cohort</a></li>
+    </ul>
+  </nav>
+  <p class="site-header__status" aria-hidden="true"><i></i>Education · not medical advice</p>
+</header>
+
+<main id="main" tabindex="-1">
+
+<!-- ============ 01 · BODY ATLAS (signature) ============ -->
+<section id="atlas-view" class="hero" aria-labelledby="hero-title">
+  <div class="hero__grid">
+    <div class="hero__left">
+      <p class="eyebrow"><i class="pulse" aria-hidden="true"></i>Vitalis · Longevity education</p>
+      <h1 id="hero-title">The science of <span>better living.</span></h1>
+      <p class="hero__lede">Six body systems, one atlas. Choose a system to see how it works, which everyday habits research links to it, and what a tracker's numbers can and cannot tell you.</p>
+      <div class="sysnav" id="sysnav" role="group" aria-label="Body systems">
+        <button class="sysbtn" type="button" aria-pressed="true" data-sys="all"><span class="sysbtn__no">00</span><svg class="sysbtn__ic" aria-hidden="true" focusable="false"><use href="#ic-all"/></svg><span class="sysbtn__name">All systems</span></button>
+        <button class="sysbtn" type="button" aria-pressed="false" data-sys="heart"><span class="sysbtn__no">01</span><svg class="sysbtn__ic" aria-hidden="true" focusable="false"><use href="#ic-heart"/></svg><span class="sysbtn__name">Heart</span></button>
+        <button class="sysbtn" type="button" aria-pressed="false" data-sys="lungs"><span class="sysbtn__no">02</span><svg class="sysbtn__ic" aria-hidden="true" focusable="false"><use href="#ic-lungs"/></svg><span class="sysbtn__name">Lungs</span></button>
+        <button class="sysbtn" type="button" aria-pressed="false" data-sys="brain"><span class="sysbtn__no">03</span><svg class="sysbtn__ic" aria-hidden="true" focusable="false"><use href="#ic-brain"/></svg><span class="sysbtn__name">Brain</span></button>
+        <button class="sysbtn" type="button" aria-pressed="false" data-sys="muscles"><span class="sysbtn__no">04</span><svg class="sysbtn__ic" aria-hidden="true" focusable="false"><use href="#ic-muscles"/></svg><span class="sysbtn__name">Muscles</span></button>
+        <button class="sysbtn" type="button" aria-pressed="false" data-sys="sleep"><span class="sysbtn__no">05</span><svg class="sysbtn__ic" aria-hidden="true" focusable="false"><use href="#ic-sleep"/></svg><span class="sysbtn__name">Sleep</span></button>
+        <button class="sysbtn" type="button" aria-pressed="false" data-sys="metabolism"><span class="sysbtn__no">06</span><svg class="sysbtn__ic" aria-hidden="true" focusable="false"><use href="#ic-metabolism"/></svg><span class="sysbtn__name">Metabolism</span></button>
+      </div>
+    </div>
+
+    <div class="hero__body" data-sys="all" id="body-view">
+      <div class="scanframe" aria-hidden="true">
+        <span class="scanframe__c scanframe__c--tl"></span><span class="scanframe__c scanframe__c--tr"></span><span class="scanframe__c scanframe__c--bl"></span><span class="scanframe__c scanframe__c--br"></span>
+        <span class="scanframe__label scanframe__label--tl">View · anterior</span>
+        <span class="scanframe__label scanframe__label--tr" id="scan-sys">Layer · all systems</span>
+        <span class="scanframe__label scanframe__label--bl">Stylised · not to scale</span>
+        <span class="scanframe__label scanframe__label--br" id="scan-clock">Local time · --:--</span>
+        <span class="scanline"></span>
+      </div>
+<svg class="atlas" id="atlas" viewBox="-130 0 660 800" role="img" aria-labelledby="atlas-title atlas-desc">
+<title id="atlas-title">Body atlas</title>
+<desc id="atlas-desc">A stylised human figure with six layered body systems: heart and circulation, lungs, brain and nerves, muscles, the sleep clock and metabolism. The selected system is highlighted.</desc>
+<defs>
+  <linearGradient id="sil-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4FD1C5" stop-opacity=".09"/><stop offset=".6" stop-color="#4FD1C5" stop-opacity=".03"/><stop offset="1" stop-color="#4FD1C5" stop-opacity=".07"/></linearGradient>
+  <pattern id="hatch" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(60)"><path d="M0 0V4" stroke="currentColor" stroke-width=".9"/></pattern>
+  <filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="3.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <radialGradient id="scan-glow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#4FD1C5" stop-opacity=".18"/><stop offset="1" stop-color="#4FD1C5" stop-opacity="0"/></radialGradient>
+</defs>
+<g class="atlas__grid" aria-hidden="true">
+  <ellipse cx="200" cy="780" rx="120" ry="12" fill="url(#scan-glow)"/>
+  <path d="M200 0 V800" class="atlas__axis"/>
+</g>
+<g class="sil">
+  <ellipse class="sil__head" cx="200" cy="66" rx="38" ry="46"/>
+  <path class="sil__body" d="M218 112 C225.2 116.7 214.1 131.2 222 138 C229.9 144.8 250.8 145.7 262 150 C273.2 154.3 277.9 154.8 284 162 C290.1 169.2 292.4 174.2 296 190 C299.6 205.8 301.1 230.2 304 250 C306.9 269.8 308.8 280.2 312 300 C315.2 319.8 318.8 340.2 322 360 C325.2 379.8 327.1 395.6 330 410 C332.9 424.4 335.5 429.2 338 440 C340.5 450.8 344.7 461.4 344 470 C343.3 478.6 338 486.6 334 488 C330 489.4 325.2 485.6 322 478 C318.8 470.4 318.2 457.9 316 446 C313.8 434.1 313.6 428.2 310 412 C306.4 395.8 300.3 376.2 296 356 C291.7 335.8 289.6 320.9 286 300 C282.4 279.1 280.3 255.5 276 240 C271.7 224.5 265.2 210 262 214 C258.8 218 260.2 242.9 258 262 C255.8 281.1 249.3 300.2 250 320 C250.7 339.8 259.5 352.2 262 372 C264.5 391.8 265.4 399.8 264 430 C262.6 460.2 255.1 509.4 254 540 C252.9 570.6 259.8 567.6 258 600 C256.2 632.4 245.1 691.2 244 720 C242.9 748.8 253.4 750.6 252 760 C250.6 769.4 242.8 770.9 236 772 C229.2 773.1 217.6 775.4 214 766 C210.4 756.6 216 746.3 216 720 C216 693.7 214.7 652.4 214 620 C213.3 587.6 213.1 572.4 212 540 C210.9 507.6 210.2 463 208 440 C205.8 417 202.9 412 200 412 C197.1 412 194.2 417 192 440 C189.8 463 189.1 507.6 188 540 C186.9 572.4 186.7 587.6 186 620 C185.3 652.4 184 693.7 184 720 C184 746.3 189.6 756.6 186 766 C182.4 775.4 170.8 773.1 164 772 C157.2 770.9 149.4 769.4 148 760 C146.6 750.6 157.1 748.8 156 720 C154.9 691.2 143.8 632.4 142 600 C140.2 567.6 147.1 570.6 146 540 C144.9 509.4 137.4 460.2 136 430 C134.6 399.8 135.5 391.8 138 372 C140.5 352.2 149.3 339.8 150 320 C150.7 300.2 144.2 281.1 142 262 C139.8 242.9 141.2 218 138 214 C134.8 210 128.3 224.5 124 240 C119.7 255.5 117.6 279.1 114 300 C110.4 320.9 108.3 335.8 104 356 C99.7 376.2 93.6 395.8 90 412 C86.4 428.2 86.2 434.1 84 446 C81.8 457.9 81.2 470.4 78 478 C74.8 485.6 70 489.4 66 488 C62 486.6 56.7 478.6 56 470 C55.3 461.4 59.5 450.8 62 440 C64.5 429.2 67.1 424.4 70 410 C72.9 395.6 74.8 379.8 78 360 C81.2 340.2 84.8 319.8 88 300 C91.2 280.2 93.1 269.8 96 250 C98.9 230.2 100.4 205.8 104 190 C107.6 174.2 109.9 169.2 116 162 C122.1 154.8 126.8 154.3 138 150 C149.2 145.7 170.1 144.8 178 138 C185.9 131.2 174.8 116.7 182 112 C189.2 107.3 210.8 107.3 218 112 Z"/>
+</g>
+<g class="sys" data-sys="sleep">
+  <path class="sys__ring" d="M124 70 A76 76 0 1 1 276 70 A76 76 0 1 1 124 70"/>
+  <path class="sys__ticks" d="M200 -6 L200 -15 M219.7 -3.4 L220.7 -7.3 M238 4.2 L240 0.7 M253.7 16.3 L256.6 13.4 M265.8 32 L269.3 30 M273.4 50.3 L277.3 49.3 M276 70 L285 70 M273.4 89.7 L277.3 90.7 M265.8 108 L269.3 110 M253.7 123.7 L256.6 126.6 M238 135.8 L240 139.3 M219.7 143.4 L220.7 147.3 M200 146 L200 155 M180.3 143.4 L179.3 147.3 M162 135.8 L160 139.3 M146.3 123.7 L143.4 126.6 M134.2 108 L130.7 110 M126.6 89.7 L122.7 90.7 M124 70 L115 70 M126.6 50.3 L122.7 49.3 M134.2 32 L130.7 30 M146.3 16.3 L143.4 13.4 M162 4.2 L160 0.7 M180.3 -3.4 L179.3 -7.3 "/>
+  <path class="sys__day" d="M269.4 79.1 A70 70 0 1 1 181.9 2.4"/>
+  <path class="sys__night" d="M181.9 2.4 A70 70 0 0 1 269.4 79.1"/>
+  <circle class="sys__scn" cx="200" cy="78" r="4"/>
+  <circle class="sys__scn-ring" cx="200" cy="78" r="10"/>
+  <g class="sys__now" id="now-marker"><circle cx="200" cy="-6" r="5"/></g>
+</g>
+<g class="sys" data-sys="brain">
+  <path class="sys__organ" d="M168 72 C164 44 184 30 200 30 C218 28 238 42 234 70 C236 86 226 96 214 96 C206 102 194 102 186 96 C172 96 166 86 168 72 Z"/>
+  <path class="sys__line" d="M176 60 C184 52 190 62 198 54 C206 46 212 58 222 50 M174 76 C184 70 192 80 202 72 C212 64 220 76 230 70 M184 90 C192 84 200 92 210 86 M200 34 C198 46 202 58 200 70 C198 80 202 90 200 98"/>
+  <path class="sys__trunk" d="M204 98 C204 106 202 114 200 122 V404"/>
+  <path class="sys__line sys__thin" d="M200 200 l-26 10 M200 220 l-30 10 M200 240 l-32 10 M200 260 l-30 10 M200 200 l26 10 M200 220 l30 10 M200 240 l32 10 M200 260 l30 10"/>
+  <path class="sys__line sys__flow sys__flow--nerve" d="M200 172 C180 172 160 174 146 182 C130 204 122 232 118 262 C112 300 104 340 98 372 C94 398 88 420 84 446"/><path class="sys__line sys__flow sys__flow--nerve" d="M200 172 C220 172 240 174 254 182 C270 204 278 232 282 262 C288 300 296 340 302 372 C306 398 312 420 316 446"/><path class="sys__line sys__flow sys__flow--nerve" d="M200 404 C188 420 180 436 178 460 C176 520 178 580 180 640 C182 690 182 730 182 766"/><path class="sys__line sys__flow sys__flow--nerve" d="M200 404 C212 420 220 436 222 460 C224 520 222 580 220 640 C218 690 218 730 218 766"/>
+</g>
+<g class="sys" data-sys="muscles">
+  <path class="sys__organ sys__hatch" d="M146 160 C130 162 120 178 122 200 C132 196 142 186 150 172 Z M254 160 C270 162 280 178 278 200 C268 196 258 186 250 172 Z M152 172 C168 166 190 168 198 176 L198 214 C182 220 162 216 152 206 C148 194 148 182 152 172 Z M248 172 C232 166 210 168 202 176 L202 214 C218 220 238 216 248 206 C252 194 252 182 248 172 Z M122 206 C116 228 114 252 118 276 C126 270 132 248 134 216 Z M278 206 C284 228 286 252 282 276 C274 270 268 248 266 216 Z M112 302 C104 330 98 370 96 404 C104 404 110 380 118 342 Z M288 302 C296 330 302 370 304 404 C296 404 290 380 282 342 Z M156 232 C152 260 154 290 164 318 L178 314 C174 284 174 258 180 230 Z M244 232 C248 260 246 290 236 318 L222 314 C226 284 226 258 220 230 Z M150 422 C146 460 150 500 162 536 L186 534 C190 498 192 460 190 426 Z M250 422 C254 460 250 500 238 536 L214 534 C210 498 208 460 210 426 Z M158 580 C152 610 154 650 164 690 L178 690 C182 650 184 612 178 580 Z M242 580 C248 610 246 650 236 690 L222 690 C218 650 216 612 222 580 Z"/>
+  <g class="sys__organ sys__hatch"><rect x="182" y="226" width="16" height="26" rx="5"/><rect x="202" y="226" width="16" height="26" rx="5"/><rect x="182" y="256" width="16" height="26" rx="5"/><rect x="202" y="256" width="16" height="26" rx="5"/><rect x="182" y="286" width="16" height="26" rx="5"/><rect x="202" y="286" width="16" height="26" rx="5"/></g>
+</g>
+<g class="sys" data-sys="lungs">
+  <g class="sys__breathe">
+    <path class="sys__organ sys__hatch" d="M192 178 C176 176 160 190 154 214 C148 240 148 270 152 292 C160 298 176 298 190 292 C194 260 196 220 192 178 Z M208 178 C224 176 240 190 246 214 C252 240 252 270 248 292 C238 298 226 296 218 290 C222 276 224 262 214 254 C210 230 210 200 208 178 Z"/>
+    <path class="sys__line" d="M200 140 V196 M200 196 L186 210 M200 196 L214 210 M186 210 L176 228 M186 210 L188 236 M176 228 L168 246 M176 228 L180 256 M168 246 L162 268 M180 256 L178 280 M214 210 L224 228 M214 210 L212 236 M224 228 L232 246 M224 228 L220 256 M232 246 L238 268 M220 256 L224 280"/>
+  </g>
+</g>
+<g class="sys" data-sys="metabolism">
+  <path class="sys__organ" d="M150 262 C170 252 204 254 214 262 C214 276 196 290 172 292 C158 292 148 280 150 262 Z"/>
+  <path class="sys__organ" d="M222 258 C238 254 250 266 248 284 C246 302 232 312 218 306 C212 300 222 294 226 286 C228 276 220 270 222 258 Z"/>
+  <path class="sys__organ" d="M190 304 C204 298 222 300 238 308 C226 314 206 314 190 304 Z"/>
+  <path class="sys__line" d="M162 388 V330 C162 318 238 318 238 330 V390"/>
+  <path class="sys__line" d="M172 334 C172 322 228 322 228 334 C228 346 172 346 172 356 C172 368 228 368 228 378 C228 388 180 390 176 382"/>
+  <path class="sys__line sys__flow sys__flow--glucose" d="M200 360 C190 340 176 322 170 300 C168 290 172 280 178 274"/>
+</g>
+<g class="sys" data-sys="heart">
+  <path class="sys__line sys__vessel" d="M232 204 C240 214 228 232 212 250 C206 300 204 350 204 392"/><path class="sys__line sys__flow sys__flow--blood" d="M232 204 C240 214 228 232 212 250 C206 300 204 350 204 392"/><path class="sys__line sys__vessel" d="M204 392 C190 404 178 418 172 440 C168 500 170 560 174 640 C176 690 174 730 172 760"/><path class="sys__line sys__flow sys__flow--blood" d="M204 392 C190 404 178 418 172 440 C168 500 170 560 174 640 C176 690 174 730 172 760"/><path class="sys__line sys__vessel" d="M204 392 C218 404 226 418 230 440 C234 500 232 560 228 640 C226 690 226 730 228 760"/><path class="sys__line sys__flow sys__flow--blood" d="M204 392 C218 404 226 418 230 440 C234 500 232 560 228 640 C226 690 226 730 228 760"/><path class="sys__line sys__vessel" d="M212 198 C200 182 194 164 190 140 C188 122 186 108 184 92"/><path class="sys__line sys__flow sys__flow--blood" d="M212 198 C200 182 194 164 190 140 C188 122 186 108 184 92"/><path class="sys__line sys__vessel" d="M218 196 C214 178 214 162 214 140 C215 122 216 108 218 92"/><path class="sys__line sys__flow sys__flow--blood" d="M218 196 C214 178 214 162 214 140 C215 122 216 108 218 92"/><path class="sys__line sys__vessel" d="M208 200 C186 186 160 176 142 180 C126 200 118 230 114 262 C108 300 100 340 94 372 C90 396 84 420 80 440"/><path class="sys__line sys__flow sys__flow--blood" d="M208 200 C186 186 160 176 142 180 C126 200 118 230 114 262 C108 300 100 340 94 372 C90 396 84 420 80 440"/><path class="sys__line sys__vessel" d="M234 198 C246 186 250 178 258 180 C274 200 282 230 286 262 C292 300 300 340 306 372 C310 396 316 420 320 440"/><path class="sys__line sys__flow sys__flow--blood" d="M234 198 C246 186 250 178 258 180 C274 200 282 230 286 262 C292 300 300 340 306 372 C310 396 316 420 320 440"/>
+  <path class="sys__line sys__thin" d="M80 440 l-6 14 M80 440 l2 16 M80 440 l8 12 M322 440 l6 14 M322 440 l-2 16 M322 440 l-8 12 M172 760 l-8 8 M172 760 l2 10 M228 760 l8 8 M228 760 l-2 10 M184 92 l-8 -10 M184 92 l2 -14 M218 92 l8 -10 M218 92 l-2 -14"/>
+  <path class="sys__organ sys__heart" d="M206 214 C190 214 184 232 192 248 C198 262 214 272 226 276 C236 262 244 246 240 230 C236 214 222 208 214 216 C212 214 210 214 206 214 Z"/>
+  <path class="sys__line" d="M214 216 C214 198 230 192 238 204 M206 214 C202 204 204 196 210 192 M222 236 C218 248 216 258 218 268"/>
+</g>
+<g class="callouts" aria-hidden="true">
+<g class="callouts__set" data-sys="heart"><g class="co">
+  <path class="co__lead" pathLength="1" d="M226 240 L316 228 H326"/>
+  <circle class="co__pin" cx="226" cy="240" r="3.2"/>
+  <text class="co__t" x="330" y="224">HEART</text>
+  <text class="co__l" x="330" y="240">~100,000 beats a day</text>
+</g><g class="co">
+  <path class="co__lead" pathLength="1" d="M304 330 L316 358 H326"/>
+  <circle class="co__pin" cx="304" cy="330" r="3.2"/>
+  <text class="co__t" x="330" y="354">ARTERIES</text>
+  <text class="co__l" x="330" y="370">carry oxygen-rich blood</text>
+</g></g>
+<g class="callouts__set" data-sys="lungs"><g class="co">
+  <path class="co__lead" pathLength="1" d="M158 250 L84 242 H74"/>
+  <circle class="co__pin" cx="158" cy="250" r="3.2"/>
+  <text class="co__t" x="-120" y="238">LUNGS</text>
+  <text class="co__l" x="-120" y="254">~20,000 breaths a day</text>
+</g><g class="co">
+  <path class="co__lead" pathLength="1" d="M200 160 L316 156 H326"/>
+  <circle class="co__pin" cx="200" cy="160" r="3.2"/>
+  <text class="co__t" x="330" y="152">TRACHEA</text>
+  <text class="co__l" x="330" y="168">the airway into the chest</text>
+</g></g>
+<g class="callouts__set" data-sys="brain"><g class="co">
+  <path class="co__lead" pathLength="1" d="M226 52 L316 40 H326"/>
+  <circle class="co__pin" cx="226" cy="52" r="3.2"/>
+  <text class="co__t" x="330" y="36">BRAIN</text>
+  <text class="co__l" x="330" y="52">about 2% of body weight</text>
+</g><g class="co">
+  <path class="co__lead" pathLength="1" d="M200 330 L84 336 H74"/>
+  <circle class="co__pin" cx="200" cy="330" r="3.2"/>
+  <text class="co__t" x="-120" y="332">SPINAL CORD</text>
+  <text class="co__l" x="-120" y="348">the main nerve pathway</text>
+</g></g>
+<g class="callouts__set" data-sys="muscles"><g class="co">
+  <path class="co__lead" pathLength="1" d="M132 182 L84 172 H74"/>
+  <circle class="co__pin" cx="132" cy="182" r="3.2"/>
+  <text class="co__t" x="-120" y="168">SKELETAL MUSCLE</text>
+  <text class="co__l" x="-120" y="184">more than 600 muscles</text>
+</g><g class="co">
+  <path class="co__lead" pathLength="1" d="M172 480 L84 476 H74"/>
+  <circle class="co__pin" cx="172" cy="480" r="3.2"/>
+  <text class="co__t" x="-120" y="472">QUADRICEPS</text>
+  <text class="co__l" x="-120" y="488">four muscles, front of thigh</text>
+</g></g>
+<g class="callouts__set" data-sys="sleep"><g class="co">
+  <path class="co__lead" pathLength="1" d="M268 38 L316 32 H326"/>
+  <circle class="co__pin" cx="268" cy="38" r="3.2"/>
+  <text class="co__t" x="330" y="28">CIRCADIAN CLOCK</text>
+  <text class="co__l" x="330" y="44">a roughly 24-hour rhythm</text>
+</g><g class="co">
+  <path class="co__lead" pathLength="1" d="M200 78 L84 102 H74"/>
+  <circle class="co__pin" cx="200" cy="78" r="3.2"/>
+  <text class="co__t" x="-120" y="98">SCN</text>
+  <text class="co__l" x="-120" y="114">master clock, hypothalamus</text>
+</g></g>
+<g class="callouts__set" data-sys="metabolism"><g class="co">
+  <path class="co__lead" pathLength="1" d="M166 272 L84 268 H74"/>
+  <circle class="co__pin" cx="166" cy="272" r="3.2"/>
+  <text class="co__t" x="-120" y="264">LIVER</text>
+  <text class="co__l" x="-120" y="280">stores glucose as glycogen</text>
+</g><g class="co">
+  <path class="co__lead" pathLength="1" d="M226 356 L316 372 H326"/>
+  <circle class="co__pin" cx="226" cy="356" r="3.2"/>
+  <text class="co__t" x="330" y="368">GUT</text>
+  <text class="co__l" x="330" y="384">absorbs nutrients</text>
+</g></g>
+</g>
+</svg>
+      <p class="hero__hint">Select a system in the list, or tap it on the figure.</p>
+    </div>
+
+    <aside class="panel" id="panel" aria-labelledby="panel-title">
+      <header class="panel__head">
+        <p class="panel__sys" id="panel-sys">Overview · 6 systems</p>
+        <h2 class="panel__title" id="panel-title">One body, six systems</h2>
+        <p class="panel__tag" id="panel-tag">No system works alone. Habits that help one usually help several, which is why the same few levers keep appearing.</p>
+      </header>
+      <dl class="kpis" id="kpis">
+        <div class="kpi"><dt id="kpi-l-0">Systems in this atlas</dt><dd><span class="kpi__v" id="kpi-v-0">6</span><span class="kpi__u" id="kpi-u-0"></span></dd><dd class="kpi__tag" id="kpi-t-0">Atlas</dd></div>
+        <div class="kpi"><dt id="kpi-l-1">Everyday levers</dt><dd><span class="kpi__v" id="kpi-v-1">6</span><span class="kpi__u" id="kpi-u-1"></span></dd><dd class="kpi__tag" id="kpi-t-1">Atlas</dd></div>
+        <div class="kpi"><dt id="kpi-l-2">Weekly habit balance</dt><dd><span class="kpi__v" id="kpi-v-2">72</span><span class="kpi__u" id="kpi-u-2">/100</span></dd><dd class="kpi__tag" id="kpi-t-2">Sample</dd></div>
+      </dl>
+      <figure class="chart">
+        <figcaption class="chart__cap"><span id="chart-cap">Habit balance across the six systems</span><span class="sample-tag">Sample data</span></figcaption>
+        <svg class="chart__svg" id="chart" viewBox="0 0 360 190" role="img" aria-labelledby="chart-cap chart-desc"><desc id="chart-desc">Sample chart.</desc></svg>
+      </figure>
+      <div class="panel__body" id="panel-body">
+        <h3>What research generally shows</h3>
+        <p id="panel-research">Large population studies consistently link a handful of habits (regular sleep, daily movement, mostly whole foods, managing stress, staying connected and not smoking) with healthier ageing across many systems at once.</p>
+        <h3>Everyday levers</h3>
+        <ul id="panel-levers"><li>Pick one system and explore it</li><li>Notice which habits repeat</li><li>Read the numbers as trends, not verdicts</li></ul>
+      </div>
+    </aside>
+  </div>
+  <p class="hero__disclaimer">Educational content, not medical advice. Every figure marked “Sample” is illustrative and does not come from a real person.</p>
+</section>
+
+<!-- ============ 02 · HABITS × SYSTEMS ============ -->
+<section id="levers" class="sect levers" aria-labelledby="levers-title">
+  <header class="sect__head">
+    <p class="eyebrow"><span class="eyebrow__no">02</span>Habits × systems</p>
+    <h2 id="levers-title" class="scan-in">Six habits. <span>Six systems.</span> One pattern.</h2>
+    <p class="sect__intro">Pick a habit to see which systems research most often connects it with. The same few habits light up again and again, which is the most useful thing to know about healthy ageing.</p>
+  </header>
+  <div class="matrix-wrap">
+    <div class="matrix-scroll">
+      <table class="matrix" id="matrix">
+        <caption class="visually-hidden">How strongly each everyday habit is commonly linked with each body system: a strong link, some link, or little direct link. An editorial simplification.</caption>
+        <thead>
+          <tr>
+            <th scope="col" class="matrix__corner">Habit</th>
+            <th scope="col"><span>Heart</span></th>
+            <th scope="col"><span>Lungs</span></th>
+            <th scope="col"><span>Brain</span></th>
+            <th scope="col"><span>Muscles</span></th>
+            <th scope="col"><span>Sleep</span></th>
+            <th scope="col"><span>Metabolism</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-row="0">
+            <th scope="row"><button class="lever" type="button" aria-pressed="false" data-lever="0"><span class="lever__no">01</span>Regular sleep</button></th>
+            <td data-col="0"><span class="cell cell--1" aria-hidden="true"></span><span class="visually-hidden">Heart: Some link</span></td>
+            <td data-col="1"><span class="cell cell--0" aria-hidden="true"></span><span class="visually-hidden">Lungs: Little direct link</span></td>
+            <td data-col="2"><span class="cell cell--2" aria-hidden="true"></span><span class="visually-hidden">Brain: Strong, commonly reported link</span></td>
+            <td data-col="3"><span class="cell cell--1" aria-hidden="true"></span><span class="visually-hidden">Muscles: Some link</span></td>
+            <td data-col="4"><span class="cell cell--2" aria-hidden="true"></span><span class="visually-hidden">Sleep: Strong, commonly reported link</span></td>
+            <td data-col="5"><span class="cell cell--2" aria-hidden="true"></span><span class="visually-hidden">Metabolism: Strong, commonly reported link</span></td>
+          </tr>
+          <tr data-row="1">
+            <th scope="row"><button class="lever" type="button" aria-pressed="false" data-lever="1"><span class="lever__no">02</span>Daily movement</button></th>
+            <td data-col="0"><span class="cell cell--2" aria-hidden="true"></span><span class="visually-hidden">Heart: Strong, commonly reported link</span></td>
+            <td data-col="1"><span class="cell cell--2" aria-hidden="true"></span><span class="visually-hidden">Lungs: Strong, commonly reported link</span></td>
+            <td data-col="2"><span class="cell cell--2" aria-hidden="true"></span><span class="visually-hidden">Brain: Strong, commonly reported link</span></td>
+            <td data-col="3"><span class="cell cell--2" aria-hidden="true"></span><span class="visually-hidden">Muscles: Strong, commonly reported link</span></td>
+            <td data-col="4"><span class="cell cell--1" aria-hidden="true"></span><span class="visually-hidden">Sleep: Some link</span></td>
+            <td data-col="5"><span class="cell cell--2" aria-hidden="true"></span><span class="visually-hidden">Metabolism: Strong, commonly reported link</span></td>
+          </tr>
+          <tr data-row="2">
+            <th scope="row"><button class="lever" type="button" aria-pressed="false" data-lever="2"><span class="lever__no">03</span>Whole-food eating</button></th>
+            <td data-col="0"><span class="cell cell--2" aria-hidden="true"></span><span class="visually-hidden">Heart: Strong, commonly reported link</span></td>
+            <td data-col="1"><span class="cell cell--0" aria-hidden="true"></span><span class="visually-hidden">Lungs: Little direct link</span></td>
+            <td data-col="2"><span class="cell cell--1" aria-hidden="true"></span><span class="visually-hidden">Brain: Some link</span></td>
+            <td data-col="3"><span class="cell cell--1" aria-hidden="true"></span><span class="visually-hidden">Muscles: Some link</span></td>
+            <td data-col="4"><span class="cell cell--1" aria-hidden="true"></span><span class="visually-hidden">Sleep: Some link</span></td>
+            <td data-col="5"><span class="cell cell--2" aria-hidden="true"></span><span class="visually-hidden">Metabolism: Strong, commonly reported link</span></td>
+          </tr>
+          <tr data-row="3">
+            <th scope="row"><button class="lever" type="button" aria-pressed="false" data-lever="3"><span class="lever__no">04</span>Recovery & stress</button></th>
+            <td data-col="0"><span class="cell cell--2" aria-hidden="true"></span><span class="visually-hidden">Heart: Strong, commonly reported link</span></td>
+            <td data-col="1"><span class="cell cell--0" aria-hidden="true"></span><span class="visually-hidden">Lungs: Little direct link</span></td>
+            <td data-col="2"><span class="cell cell--2" aria-hidden="true"></span><span class="visually-hidden">Brain: Strong, commonly reported link</span></td>
+            <td data-col="3"><span class="cell cell--1" aria-hidden="true"></span><span class="visually-hidden">Muscles: Some link</span></td>
+            <td data-col="4"><span class="cell cell--2" aria-hidden="true"></span><span class="visually-hidden">Sleep: Strong, commonly reported link</span></td>
+            <td data-col="5"><span class="cell cell--1" aria-hidden="true"></span><span class="visually-hidden">Metabolism: Some link</span></td>
+          </tr>
+          <tr data-row="4">
+            <th scope="row"><button class="lever" type="button" aria-pressed="false" data-lever="4"><span class="lever__no">05</span>Social connection</button></th>
+            <td data-col="0"><span class="cell cell--1" aria-hidden="true"></span><span class="visually-hidden">Heart: Some link</span></td>
+            <td data-col="1"><span class="cell cell--0" aria-hidden="true"></span><span class="visually-hidden">Lungs: Little direct link</span></td>
+            <td data-col="2"><span class="cell cell--2" aria-hidden="true"></span><span class="visually-hidden">Brain: Strong, commonly reported link</span></td>
+            <td data-col="3"><span class="cell cell--0" aria-hidden="true"></span><span class="visually-hidden">Muscles: Little direct link</span></td>
+            <td data-col="4"><span class="cell cell--1" aria-hidden="true"></span><span class="visually-hidden">Sleep: Some link</span></td>
+            <td data-col="5"><span class="cell cell--0" aria-hidden="true"></span><span class="visually-hidden">Metabolism: Little direct link</span></td>
+          </tr>
+          <tr data-row="5">
+            <th scope="row"><button class="lever" type="button" aria-pressed="false" data-lever="5"><span class="lever__no">06</span>Not smoking</button></th>
+            <td data-col="0"><span class="cell cell--2" aria-hidden="true"></span><span class="visually-hidden">Heart: Strong, commonly reported link</span></td>
+            <td data-col="1"><span class="cell cell--2" aria-hidden="true"></span><span class="visually-hidden">Lungs: Strong, commonly reported link</span></td>
+            <td data-col="2"><span class="cell cell--1" aria-hidden="true"></span><span class="visually-hidden">Brain: Some link</span></td>
+            <td data-col="3"><span class="cell cell--0" aria-hidden="true"></span><span class="visually-hidden">Muscles: Little direct link</span></td>
+            <td data-col="4"><span class="cell cell--1" aria-hidden="true"></span><span class="visually-hidden">Sleep: Some link</span></td>
+            <td data-col="5"><span class="cell cell--1" aria-hidden="true"></span><span class="visually-hidden">Metabolism: Some link</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <aside class="lever-card" id="lever-card" aria-live="polite">
+      <p class="lever-card__k" id="lc-k">Legend</p>
+      <h3 class="lever-card__t" id="lc-t">Select a habit</h3>
+      <p class="lever-card__p" id="lc-p">Each row is an everyday habit. Filled marks show a strong, commonly reported link; rings show some link.</p>
+      <ul class="legend">
+        <li><span class="cell cell--2" aria-hidden="true"></span>Strong, commonly reported link</li>
+        <li><span class="cell cell--1" aria-hidden="true"></span>Some link</li>
+        <li><span class="cell cell--0" aria-hidden="true"></span>Little direct link</li>
+      </ul>
+    </aside>
+  </div>
+  <p class="sect__note">An editorial summary of widely reported associations, simplified for learning. Associations are not guarantees, and this is not medical advice.</p>
+</section>
+
+<!-- ============ 03 · A DAY IN SAMPLE DATA ============ -->
+<section id="day" class="sect day" aria-labelledby="day-title">
+  <div class="day__grid">
+    <div class="day__sticky">
+      <figure class="daychart">
+        <figcaption class="chart__cap"><span>One day for a fictional person: heart rate, glucose, steps and sleep</span><span class="sample-tag">Sample data</span></figcaption>
+        <svg class="daychart__svg" id="daychart" viewBox="0 0 660 400" role="img" aria-label="Sample 24-hour chart with heart rate, glucose, hourly steps and sleep periods. A cursor follows the story as you scroll."></svg>
+        <dl class="day__readout" id="day-readout">
+          <div><dt>Time</dt><dd id="dr-time">06:30</dd></div>
+          <div><dt>Heart rate</dt><dd><span id="dr-hr">62</span> <small>bpm</small></dd></div>
+          <div><dt>Glucose</dt><dd><span id="dr-glu">5.1</span> <small>mmol/L</small></dd></div>
+          <div><dt>Steps this hour</dt><dd id="dr-steps">0</dd></div>
+        </dl>
+      </figure>
+    </div>
+    <div class="day__story">
+      <header class="sect__head">
+        <p class="eyebrow"><span class="eyebrow__no">03</span>A day in data</p>
+        <h2 id="day-title" class="scan-in">Twenty-four hours, <span>read slowly.</span></h2>
+        <p class="sect__intro">A wearable produces thousands of numbers a day. Scroll through one sample day and watch how the signals respond to ordinary things: light, meals, a walk, a long afternoon, sleep.</p>
+      </header>
+      <ol class="moments" id="moments">
+        <li class="moment" data-t="6.5"><p class="moment__t">06:30</p><h3>Wake, then find daylight</h3><p>Morning light is one of the strongest cues for the body clock. Heart rate climbs gently as the body shifts out of sleep.</p></li>
+        <li class="moment" data-t="8"><p class="moment__t">08:00</p><h3>Breakfast</h3><p>A rise in glucose after eating is normal. Its shape depends on the meal, the person and even the night before.</p></li>
+        <li class="moment" data-t="12.75"><p class="moment__t">12:45</p><h3>A walk after lunch</h3><p>Many studies find that a short walk after a meal is associated with a smaller glucose rise. Steps spike and heart rate follows.</p></li>
+        <li class="moment" data-t="15"><p class="moment__t">15:00</p><h3>The afternoon dip</h3><p>For many people alertness dips in the early afternoon. It is part of the daily rhythm, not a personal failing.</p></li>
+        <li class="moment" data-t="19.5"><p class="moment__t">19:30</p><h3>Dinner and winding down</h3><p>A later, larger meal shows up in the glucose trace. Dimmer light in the evening lets the body clock move towards night.</p></li>
+        <li class="moment" data-t="23.25"><p class="moment__t">23:15</p><h3>Sleep</h3><p>Heart rate settles through the night. Deep sleep tends to cluster earlier in the night and REM sleep later.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 · SIGNAL VS NOISE ============ -->
+<section id="signal" class="sect signal" aria-labelledby="signal-title">
+  <header class="sect__head sect__head--split">
+    <div>
+      <p class="eyebrow"><span class="eyebrow__no">04</span>Signal vs noise</p>
+      <h2 id="signal-title" class="scan-in">One reading is a rumour. <span>A trend is a story.</span></h2>
+    </div>
+    <p class="sect__intro">Daily numbers bounce around for dull reasons: a late meal, a warm room, a cold coming on. Switch the views to see how averages and typical ranges turn noise into something you can actually read.</p>
+  </header>
+  <div class="signal__grid">
+    <div class="signal__ctl">
+      <div class="seg" role="group" aria-label="Metric">
+        <button class="seg__btn" type="button" aria-pressed="true" data-metric="rhr">Resting heart rate</button>
+        <button class="seg__btn" type="button" aria-pressed="false" data-metric="hrv">Heart-rate variability</button>
+        <button class="seg__btn" type="button" aria-pressed="false" data-metric="sleep">Sleep duration</button>
+      </div>
+      <div class="toggles">
+        <button class="tog" type="button" role="switch" aria-checked="true" data-layer="daily"><span class="tog__box" aria-hidden="true"></span>Daily readings</button>
+        <button class="tog" type="button" role="switch" aria-checked="false" data-layer="avg"><span class="tog__box" aria-hidden="true"></span>7-day average</button>
+        <button class="tog" type="button" role="switch" aria-checked="false" data-layer="band"><span class="tog__box" aria-hidden="true"></span>Typical range</button>
+      </div>
+      <div class="signal__note" aria-live="polite">
+        <h3 id="sn-title">Resting heart rate</h3>
+        <p id="sn-text">Usually measured during sleep or first thing in the morning. A single high reading after a late dinner means little; a rise that lasts for several days is worth noticing.</p>
+      </div>
+      <dl class="signal__stats">
+        <div><dt>Last reading</dt><dd id="ss-last">—</dd></div>
+        <div><dt>7-day average</dt><dd id="ss-avg">—</dd></div>
+        <div><dt>90-day range</dt><dd id="ss-range">—</dd></div>
+      </dl>
+    </div>
+    <figure class="signal__fig">
+      <svg class="signal__svg" id="signal-chart" viewBox="0 0 720 360" role="img" aria-label="Sample 90-day chart of the selected metric, with optional 7-day average and typical range."></svg>
+      <figcaption class="chart__cap"><span>Ninety days for a fictional person</span><span class="sample-tag">Sample data</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ 05 · COHORT ============ -->
+<section id="cohort" class="sect cohort" aria-labelledby="cohort-title">
+  <div class="cohort__grid">
+    <div class="cohort__info">
+      <p class="eyebrow"><span class="eyebrow__no">05</span>Vitalis Foundations</p>
+      <h2 id="cohort-title" class="scan-in">Six evenings on <span>the science of ageing well.</span></h2>
+      <p class="sect__intro">A small online cohort, one system a week, taught in plain English with the evidence and its limits laid out side by side. No supplements to sell, no protocols to follow.</p>
+      <ol class="syllabus">
+        <li><span>Wk 1</span>Heart &amp; circulation</li>
+        <li><span>Wk 2</span>Lungs &amp; fitness</li>
+        <li><span>Wk 3</span>Brain &amp; mood</li>
+        <li><span>Wk 4</span>Muscle &amp; strength</li>
+        <li><span>Wk 5</span>Sleep &amp; the body clock</li>
+        <li><span>Wk 6</span>Metabolism &amp; food</li>
+      </ol>
+    </div>
+    <form class="form" id="cohort-form" novalidate>
+      <p class="form__demo"><i aria-hidden="true"></i>Portfolio demo: nothing you enter is sent or stored.</p>
+      <div class="field">
+        <label for="c-name">Name</label>
+        <input id="c-name" name="name" type="text" autocomplete="name" required aria-describedby="e-cname">
+        <p class="field__err" id="e-cname" aria-live="polite"></p>
+      </div>
+      <div class="field">
+        <label for="c-email">Email</label>
+        <input id="c-email" name="email" type="email" autocomplete="email" required aria-describedby="e-cemail">
+        <p class="field__err" id="e-cemail" aria-live="polite"></p>
+      </div>
+      <fieldset class="field field--wide" aria-describedby="e-focus">
+        <legend>Which systems interest you most?</legend>
+        <div class="checks">
+          <label><input type="checkbox" name="focus" value="Heart"><span>Heart</span></label>
+          <label><input type="checkbox" name="focus" value="Lungs"><span>Lungs</span></label>
+          <label><input type="checkbox" name="focus" value="Brain"><span>Brain</span></label>
+          <label><input type="checkbox" name="focus" value="Muscles"><span>Muscles</span></label>
+          <label><input type="checkbox" name="focus" value="Sleep"><span>Sleep</span></label>
+          <label><input type="checkbox" name="focus" value="Metabolism"><span>Metabolism</span></label>
+        </div>
+        <p class="field__err" id="e-focus" aria-live="polite"></p>
+      </fieldset>
+      <div class="field field--wide">
+        <label for="c-cohort">Cohort</label>
+        <select id="c-cohort" name="cohort" required aria-describedby="e-cohort">
+          <option value="">Choose a start date</option>
+        </select>
+        <p class="field__err" id="e-cohort" aria-live="polite"></p>
+      </div>
+      <div class="form__foot field--wide">
+        <button class="btn" type="submit">Request a place <svg aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></button>
+        <p class="form__small">Education only. The course does not diagnose, treat or give personal medical advice.</p>
+      </div>
+      <div class="form__done" id="cohort-done" tabindex="-1" hidden>
+        <p class="form__done-k">Status · demo</p>
+        <p class="form__done-t" id="cohort-done-t">Request logged.</p>
+        <p id="cohort-done-p">This is a portfolio demo: nothing was sent and no place was reserved.</p>
+        <button class="link" type="button" id="cohort-again">Start again</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__ecg" aria-hidden="true">
+    <svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0 36 H420 L436 36 L446 14 L462 52 L474 26 L482 36 H760 L772 36 L780 20 L792 48 L800 36 H1200" fill="none" stroke="#4FD1C5" stroke-width="1.4" vector-effect="non-scaling-stroke"/></svg>
+  </div>
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <a class="brand" href="#top" aria-label="Vitalis, back to the top">
+        <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><use href="#vt-mark"/></svg>
+        <span class="brand__word">VITALIS</span>
+      </a>
+      <p class="footer__line">The science of <span>better living.</span></p>
+    </div>
+    <nav class="footer__nav" aria-label="Footer">
+      <p class="footer__label">Index</p>
+      <ul>
+        <li><a href="#atlas-view">01 · Body atlas</a></li>
+        <li><a href="#levers">02 · Habits × systems</a></li>
+        <li><a href="#day">03 · A day in data</a></li>
+        <li><a href="#signal">04 · Signal vs noise</a></li>
+        <li><a href="#cohort">05 · Join a cohort</a></li>
+      </ul>
+    </nav>
+    <div class="credit">
+      <p class="footer__label">Credits</p>
+      <p class="credit__by">Designed &amp; built by <a href="https://www.linkedin.com/in/saadbashirmarketing/" target="_blank" rel="noopener" aria-label="Saad Bashir on LinkedIn (opens in a new tab)">Saad Bashir</a></p>
+      <p class="credit__note">Fictional concept brand — portfolio project.</p>
+      <a class="credit__more" href="https://saadbashirportfolio.vercel.app/websites.html">More work <svg aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+  <p class="footer__fine">VITALIS is a fictional education brand. Content is general information, not medical advice; talk to a qualified professional about your own health. All charts use sample data. Set in Schibsted Grotesk and Spline Sans Mono.</p>
+</footer>
+</body>
+</html>
